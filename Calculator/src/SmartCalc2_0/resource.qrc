@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>view/style.css</file>
+        <file>view/images/plus.png</file>
+        <file>view/images/cross.jpeg</file>
+    </qresource>
+</RCC>

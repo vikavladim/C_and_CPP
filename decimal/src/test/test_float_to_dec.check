@@ -1,0 +1,336 @@
+#test vv_float_to_dec_1
+vv_decimal origin;
+   int code_check = 0; int code =0;
+// src1 = 2;
+
+float num = 2;
+
+  vv_decimal result = {0}; code = vv_from_float_to_decimal(num, &result);
+origin.bits[0] = 0b00000000000000000000000000000010;
+  origin.bits[1] = 0b00000000000000000000000000000000;
+  origin.bits[2] = 0b00000000000000000000000000000000;
+  origin.bits[3] = 0b00000000000000000000000000000000;
+int check = vv_is_equal(origin, result);
+    ck_assert_int_eq(1, check);
+    ck_assert_int_eq(code_check, code);
+#test vv_float_to_dec_2
+  vv_decimal origin;
+   int code_check = 0; int code =0;
+  // src1 = -2;
+
+  float num = -2;
+
+  vv_decimal result = {0}; code = vv_from_float_to_decimal(num, &result);
+  origin.bits[0] = 0b00000000000000000000000000000010;
+  origin.bits[1] = 0b00000000000000000000000000000000;
+  origin.bits[2] = 0b00000000000000000000000000000000;
+  origin.bits[3] = 0b10000000000000000000000000000000;
+  int check = vv_is_equal(origin, result);
+    ck_assert_int_eq(1, check);ck_assert_int_eq(code_check, code);
+#test vv_float_to_dec_3
+vv_decimal origin;
+   int code_check = 0; int code =0;
+  // src1 = 7.922817E+28;
+
+  float num = 7.922817E+28;
+
+  vv_decimal result = {0}; code = vv_from_float_to_decimal(num, &result);
+code_check = 1;
+  origin.bits[0] = 0b00000000000000000000000000000000;
+  origin.bits[1] = 0b00000000000000000000000000000000;
+  origin.bits[2] = 0b00000000000000000000000000000000;
+  origin.bits[3] = 0b00000000000000010000000000000000;
+  int check = vv_is_equal(origin, result);
+    ck_assert_int_eq(1, check);
+    ck_assert_int_eq(code_check, code);
+#test vv_float_to_dec_4
+  vv_decimal origin;
+   int code_check = 0; int code =0;
+  // src1 = 7.922816E+28;
+
+  float num = 7.922816E+28;
+
+  vv_decimal result = {0}; code = vv_from_float_to_decimal(num, &result);
+  origin.bits[0] = 0b00100000000000000000000000000000;
+  origin.bits[1] = 0b10110011100100101011001000011010;
+  origin.bits[2] = 0b11111111111111111111111101110111;
+  origin.bits[3] = 0b00000000000000000000000000000000;
+  int check = vv_is_equal(origin, result);
+    ck_assert_int_eq(1, check);
+    ck_assert_int_eq(code_check, code);
+#test vv_float_to_dec_5
+  vv_decimal origin;
+   int code_check = 0; int code =0;
+  // src1 = -7.922817E+28;
+
+  float num = -7.922817E+28;
+
+  vv_decimal result = {0}; code = vv_from_float_to_decimal(num, &result);
+   code_check = 1;
+  origin.bits[0] = 0b00000000000000000000000000000000;
+  origin.bits[1] = 0b00000000000000000000000000000000;
+  origin.bits[2] = 0b00000000000000000000000000000000;
+  origin.bits[3] = 0b00000000000000010000000000000000;
+  int check = vv_is_equal(origin, result);
+    ck_assert_int_eq(1, check);
+    ck_assert_int_eq(code_check, code);
+#test vv_float_to_dec_6
+  vv_decimal origin;
+   int code_check = 0; int code =0;
+  // src1 = -7.922816E+28;
+
+  float num = -7.922816E+28;
+
+  vv_decimal result = {0}; code = vv_from_float_to_decimal(num, &result);
+  origin.bits[0] = 0b00100000000000000000000000000000;
+  origin.bits[1] = 0b10110011100100101011001000011010;
+  origin.bits[2] = 0b11111111111111111111111101110111;
+  origin.bits[3] = 0b10000000000000000000000000000000;
+  int check = vv_is_equal(origin, result);
+    ck_assert_int_eq(1, check);
+    ck_assert_int_eq(code_check, code);
+#test vv_float_to_dec_7
+  vv_decimal origin;
+   int code_check = 0; int code =0;
+  // src1 = 200;
+
+  float num = 200;
+
+  vv_decimal result = {0}; code = vv_from_float_to_decimal(num, &result);
+  origin.bits[0] = 0b00000000000000000000000011001000;
+  origin.bits[1] = 0b00000000000000000000000000000000;
+  origin.bits[2] = 0b00000000000000000000000000000000;
+  origin.bits[3] = 0b00000000000000000000000000000000;
+  int check = vv_is_equal(origin, result);
+    ck_assert_int_eq(1, check);
+    ck_assert_int_eq(code_check, code);
+#test vv_float_to_dec_8
+  vv_decimal origin;
+   int code_check = 0; int code =0;
+  // src1 = -200.3;
+
+  float num = -200.3;
+
+  vv_decimal result = {0}; code = vv_from_float_to_decimal(num, &result);
+  origin.bits[0] = 0b00000000000000000000011111010011;
+  origin.bits[1] = 0b00000000000000000000000000000000;
+  origin.bits[2] = 0b00000000000000000000000000000000;
+  origin.bits[3] = 0b10000000000000010000000000000000;
+  int check = vv_is_equal(origin, result);
+    ck_assert_int_eq(1, check);
+    ck_assert_int_eq(code_check, code);
+#test vv_float_to_dec_9
+  vv_decimal origin;
+   int code_check = 0; int code =0;
+  // src1 = -200;
+
+  float num = -200;
+
+  vv_decimal result = {0}; code = vv_from_float_to_decimal(num, &result);
+  origin.bits[0] = 0b00000000000000000000000011001000;
+  origin.bits[1] = 0b00000000000000000000000000000000;
+  origin.bits[2] = 0b00000000000000000000000000000000;
+  origin.bits[3] = 0b10000000000000000000000000000000;
+  int check = vv_is_equal(origin, result);
+    ck_assert_int_eq(1, check);
+    ck_assert_int_eq(code_check, code);
+#test vv_float_to_dec_10
+  vv_decimal origin;
+   int code_check = 0; int code =0;
+  // src1 = 200;
+
+  float num = 200;
+
+  vv_decimal result = {0}; code = vv_from_float_to_decimal(num, &result);
+  origin.bits[0] = 0b00000000000000000000000011001000;
+  origin.bits[1] = 0b00000000000000000000000000000000;
+  origin.bits[2] = 0b00000000000000000000000000000000;
+  origin.bits[3] = 0b00000000000000000000000000000000;
+  int check = vv_is_equal(origin, result);
+    ck_assert_int_eq(1, check);
+    ck_assert_int_eq(code_check, code);
+#test vv_float_to_dec_11
+  vv_decimal origin;
+   int code_check = 0; int code =0;
+  // src1 = 0;
+
+  float num = 0;
+
+  vv_decimal result = {0}; code = vv_from_float_to_decimal(num, &result);
+  origin.bits[0] = 0b00000000000000000000000000000000;
+  origin.bits[1] = 0b00000000000000000000000000000000;
+  origin.bits[2] = 0b00000000000000000000000000000000;
+  origin.bits[3] = 0b00000000000000000000000000000000;
+  int check = vv_is_equal(origin, result);
+    ck_assert_int_eq(1, check);
+    ck_assert_int_eq(code_check, code);
+#test vv_float_to_dec_12
+  vv_decimal origin;
+   int code_check = 0; int code =0;
+  // src1 = 0;
+
+  float num = 0;
+
+  vv_decimal result = {0}; code = vv_from_float_to_decimal(num, &result);
+  origin.bits[0] = 0b00000000000000000000000000000000;
+  origin.bits[1] = 0b00000000000000000000000000000000;
+  origin.bits[2] = 0b00000000000000000000000000000000;
+  origin.bits[3] = 0b00000000000000000000000000000000;
+  int check = vv_is_equal(origin, result);
+    ck_assert_int_eq(1, check);
+    ck_assert_int_eq(code_check, code);
+#test vv_float_to_dec_13
+  vv_decimal origin;
+   int code_check = 0; int code =0;
+  // src1 = 0;
+
+  float num = 0;
+
+  vv_decimal result = {0}; code = vv_from_float_to_decimal(num, &result);
+  origin.bits[0] = 0b00000000000000000000000000000000;
+  origin.bits[1] = 0b00000000000000000000000000000000;
+  origin.bits[2] = 0b00000000000000000000000000000000;
+  origin.bits[3] = 0b00000000000000000000000000000000;
+  int check = vv_is_equal(origin, result);
+    ck_assert_int_eq(1, check);
+    ck_assert_int_eq(code_check, code);
+#test vv_float_to_dec_14
+  vv_decimal origin;
+   int code_check = 0; int code =0;
+  // src1 = 0;
+
+  float num = 0;
+
+  vv_decimal result = {0}; code = vv_from_float_to_decimal(num, &result);
+  origin.bits[0] = 0b00000000000000000000000000000000;
+  origin.bits[1] = 0b00000000000000000000000000000000;
+  origin.bits[2] = 0b00000000000000000000000000000000;
+  origin.bits[3] = 0b00000000000000000000000000000000;
+  int check = vv_is_equal(origin, result);
+    ck_assert_int_eq(1, check);
+    ck_assert_int_eq(code_check, code);
+#test vv_float_to_dec_15
+  vv_decimal origin;
+   int code_check = 0; int code =0;
+  // src1 = 7.922816E+20;
+
+  float num = 7.922816E+20;
+
+  vv_decimal result = {0}; code = vv_from_float_to_decimal(num, &result);
+  origin.bits[0] = 0b00011110001000000000000000000000;
+  origin.bits[1] = 0b11110011000111011010110110000011;
+  origin.bits[2] = 0b00000000000000000000000000101010;
+  origin.bits[3] = 0b00000000000000000000000000000000;
+  int check = vv_is_equal(origin, result);
+    ck_assert_int_eq(1, check);
+    ck_assert_int_eq(code_check, code);
+#test vv_float_to_dec_16
+  vv_decimal origin;
+   int code_check = 0; int code =0;
+  // src1 = -7.922816E+20;
+
+  float num = -7.922816E+20;
+
+  vv_decimal result = {0}; code = vv_from_float_to_decimal(num, &result);
+  origin.bits[0] = 0b00011110001000000000000000000000;
+  origin.bits[1] = 0b11110011000111011010110110000011;
+  origin.bits[2] = 0b00000000000000000000000000101010;
+  origin.bits[3] = 0b10000000000000000000000000000000;
+  int check = vv_is_equal(origin, result);
+    ck_assert_int_eq(1, check);
+    ck_assert_int_eq(code_check, code);
+#test vv_float_to_dec_17
+  vv_decimal origin;
+   int code_check = 0; int code =0;
+  // src1 = -7.922916E+28;
+
+  float num = -7.922916E+28;
+
+  vv_decimal result = {0}; code = vv_from_float_to_decimal(num, &result);
+   code_check = 1;
+  origin.bits[0] = 0b00000000000000000000000000000000;
+  origin.bits[1] = 0b00000000000000000000000000000000;
+  origin.bits[2] = 0b00000000000000000000000000000000;
+  origin.bits[3] = 0b00000000000000010000000000000000;
+  int check = vv_is_equal(origin, result);
+    ck_assert_int_eq(1, check);
+    ck_assert_int_eq(code_check, code);
+#test vv_float_to_dec_18
+  vv_decimal origin;
+   int code_check = 0; int code =0;
+  // src1 = -7.922916E+28;
+
+  float num = -7.922916E+28;
+
+  vv_decimal result = {0}; code = vv_from_float_to_decimal(num, &result);
+   code_check = 1;
+  origin.bits[0] = 0b00000000000000000000000000000000;
+  origin.bits[1] = 0b00000000000000000000000000000000;
+  origin.bits[2] = 0b00000000000000000000000000000000;
+  origin.bits[3] = 0b00000000000000010000000000000000;
+  int check = vv_is_equal(origin, result);
+    ck_assert_int_eq(1, check);
+    ck_assert_int_eq(code_check, code);
+
+#test vv_float_to_dec_21
+  vv_decimal origin;
+   int code_check = 0; int code =0;
+  // src1 = 1E-28;
+
+  float num = 1E-28;
+
+  vv_decimal result = {0}; code = vv_from_float_to_decimal(num, &result);
+  origin.bits[0] = 0b00000000000000000000000000000001;
+  origin.bits[1] = 0b00000000000000000000000000000000;
+  origin.bits[2] = 0b00000000000000000000000000000000;
+  origin.bits[3] = 0b00000000000111000000000000000000;
+  int check = vv_is_equal(origin, result);
+    ck_assert_int_eq(1, check);
+    ck_assert_int_eq(code_check, code);
+#test vv_float_to_dec_22
+  vv_decimal origin;
+   int code_check = 0; int code =0;
+  // src1 = -1E-28;
+
+  float num = -1E-28;
+
+  vv_decimal result = {0}; code = vv_from_float_to_decimal(num, &result);
+  origin.bits[0] = 0b00000000000000000000000000000001;
+  origin.bits[1] = 0b00000000000000000000000000000000;
+  origin.bits[2] = 0b00000000000000000000000000000000;
+  origin.bits[3] = 0b10000000000111000000000000000000;
+  int check = vv_is_equal(origin, result);
+    ck_assert_int_eq(1, check);
+    ck_assert_int_eq(code_check, code);
+#test vv_float_to_dec_23
+  vv_decimal origin;
+   int code_check = 0; int code =0;
+  // src1 = 1E-29;
+
+  float num = 1E-29;
+
+  vv_decimal result = {0}; code = vv_from_float_to_decimal(num, &result);
+  origin.bits[0] = 0b00000000000000000000000000000000;
+  origin.bits[1] = 0b00000000000000000000000000000000;
+  origin.bits[2] = 0b00000000000000000000000000000000;
+  origin.bits[3] = 0b00000000000000000000000000000000;
+  code_check = 1;
+  int check = vv_is_equal(origin, result);
+    ck_assert_int_eq(1, check);
+    ck_assert_int_eq(code_check, code);
+#test vv_float_to_dec_24
+  vv_decimal origin;
+   int code_check = 0; int code =0;
+  // src1 = -1E-29;
+
+  float num = -1E-29;
+
+  vv_decimal result = {0}; code = vv_from_float_to_decimal(num, &result);
+  origin.bits[0] = 0b00000000000000000000000000000000;
+  origin.bits[1] = 0b00000000000000000000000000000000;
+  origin.bits[2] = 0b00000000000000000000000000000000;
+  origin.bits[3] = 0b00000000000000000000000000000000;
+    code_check = 1;
+  int check = vv_is_equal(origin, result);
+    ck_assert_int_eq(1, check);
+    ck_assert_int_eq(code_check, code);
